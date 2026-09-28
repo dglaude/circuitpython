@@ -1,25 +1,13 @@
-#
-# Espressif IoT Development Framework Configuration
-#
-#
-# Component config
-#
-#
-# LWIP
-#
-# end of LWIP
-
-# end of Component config
-
-# end of Espressif IoT Development Framework Configuration
-
+#######################
+# Force Flash 4MB
 CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
+CONFIG_ESPTOOLPY_FLASHSIZE="4MB"
 CONFIG_ESPTOOLPY_FLASHSIZE_8MB=n
 CONFIG_ESPTOOLPY_FLASHMODE_QIO=y
 CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
 
-# Disable PSRAM initialization check
+# Désactivation absolue de la PSRAM (absente sur C5FH4)
 CONFIG_SPIRAM=n
 
-# Native USB Serial / JTAG console
+# Redirection de la console sur le port USB-C natif
 CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y
