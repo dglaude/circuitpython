@@ -8,10 +8,12 @@
 
 // Micropython setup
 
-#define MICROPY_HW_BOARD_NAME       "ESP32-C5-DevKitC-1-N8R8"
-#define MICROPY_HW_MCU_NAME         "ESP32C5"
+#define MICROPY_HW_BOARD_NAME "ESP32-C5-DevKitC-1-N8R8"
+#define MICROPY_HW_MCU_NAME "ESP32-C5"
 
-#define MICROPY_HW_NEOPIXEL         (&pin_GPIO27)
+#define CIRCUITPY_BOOT_BUTTON (&pin_GPIO0)
 
-#define DEFAULT_UART_BUS_RX         (&pin_GPIO12)
-#define DEFAULT_UART_BUS_TX         (&pin_GPIO11)
+// Waveshare onboard NeoPixel is on GPIO8
+#define CIRCUITPY_STATUS_LED_POWER (&pin_GPIO8)
+#define MICROPY_HW_NEOPIXEL (&pin_GPIO8)
+#define MICROPY_HW_NEOPIXEL_COUNT (1)
