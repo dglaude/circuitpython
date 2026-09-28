@@ -11,11 +11,7 @@ CIRCUITPY_ESP_FLASH_SIZE = 8MB
 
 # Fallbacks in case Makefile expects non-prefixed variables
 FLASH_MODE = dio
-FLASH_SIZE = 8MB
+FLASH_SIZE = 4MB
 
 CIRCUITPY_NEOPIXEL_WRITE = 1
 
-# PSRAM temporarily disabled for initial bringup
-# CIRCUITPY_ESP_PSRAM_SIZE = 8MB
-# CIRCUITPY_ESP_PSRAM_MODE = qio
-# CIRCUITPY_ESP_PSRAM_FREQ = 40m
