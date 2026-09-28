@@ -1,4 +1,3 @@
-#######################
 # Force Flash 4MB
 CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
 CONFIG_ESPTOOLPY_FLASHSIZE="4MB"
@@ -6,8 +5,8 @@ CONFIG_ESPTOOLPY_FLASHSIZE_8MB=n
 CONFIG_ESPTOOLPY_FLASHMODE_QIO=y
 CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
 
-# Désactivation absolue de la PSRAM (absente sur C5FH4)
+# Disable PSRAM (absent on C5FH4)
 CONFIG_SPIRAM=n
 
-# Redirection de la console sur le port USB-C natif
+# Native USB Serial / JTAG console
 CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y
