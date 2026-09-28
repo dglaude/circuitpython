@@ -5,7 +5,11 @@ USB_MANUFACTURER = "Espressif"
 
 IDF_TARGET = esp32c5
 
-CIRCUITPY_ESP_FLASH_MODE = qio
+# Selects sdkconfig-flash-qio.defaults
+# was "CIRCUITPY_ESP_FLASH_MODE = qio" now is:
+FLASH_MODE = qio
+
+# Selects partitions-4MB.csv
 CIRCUITPY_ESP_FLASH_SIZE = 4MB
 
 CIRCUITPY_NEOPIXEL_WRITE = 1
