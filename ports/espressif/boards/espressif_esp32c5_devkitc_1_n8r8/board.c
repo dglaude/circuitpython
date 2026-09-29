@@ -49,7 +49,7 @@ static void display_init(void) {
         40000000,                       // Baudrate (40 MHz)
         0,                              // Polarity
         0                               // Phase
-    );
+        );
 
     busdisplay_busdisplay_obj_t *display = &allocate_display()->display;
     display->base.type = &busdisplay_busdisplay_type;
@@ -83,7 +83,7 @@ static void display_init(void) {
         true,                           // Backlight active high
         false,                          // SH1107 addressing
         50000                           // Backlight PWM frequency
-    );
+        );
 }
 
 void board_init(void) {
