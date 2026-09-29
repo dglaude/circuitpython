@@ -7,6 +7,7 @@
 #include "shared-bindings/microcontroller/Pin.h"
 #include "shared-bindings/busio/SPI.h"
 #include "shared-bindings/fourwire/FourWire.h"
+#include "shared-bindings/busdisplay/BusDisplay.h"
 #include "shared-module/displayio/__init__.h"
 #include "shared-module/displayio/mipi_constants.h"
 #include "shared-bindings/board/__init__.h"
@@ -14,7 +15,6 @@
 #define DELAY 0x80
 
 // Driver: ST7789V3, Panel: LBS147TC-IF15 (172x320 RGB)
-// Must not be const to match common_hal_busdisplay_busdisplay_construct signature
 uint8_t display_init_sequence[] = {
     0x01, 0 | DELAY, 120,
     0x11, 0 | DELAY, 120,
@@ -62,7 +62,7 @@ static void display_init(void) {
         320,                            // Native height
         34,                             // Column start offset
         0,                              // Row start offset
-        270,                            // Rotation: 270 for landscape REPL
+        0,                              // Native rotation: 0 (portrait)
         16,                             // Color depth
         false,                          // Grayscale
         false,                          // Pixels in byte share row
@@ -85,6 +85,9 @@ static void display_init(void) {
         false,                          // SH1107 addressing
         50000                           // Backlight PWM frequency
         );
+
+    // Switch to landscape: swaps width/height to 320x172 and recalculates RAM offsets
+    common_hal_busdisplay_busdisplay_set_rotation(display, 270);
 }
 
 void board_init(void) {
