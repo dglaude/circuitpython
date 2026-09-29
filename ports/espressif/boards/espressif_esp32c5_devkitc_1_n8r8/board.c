@@ -14,7 +14,8 @@
 #define DELAY 0x80
 
 // Driver: ST7789V3, Panel: LBS147TC-IF15 (172x320 RGB)
-static const uint8_t display_init_sequence[] = {
+// Must not be const to match common_hal_busdisplay_busdisplay_construct signature
+uint8_t display_init_sequence[] = {
     0x01, 0 | DELAY, 120,
     0x11, 0 | DELAY, 120,
     0x13, 0,
@@ -61,7 +62,7 @@ static void display_init(void) {
         320,                            // Native height
         34,                             // Column start offset
         0,                              // Row start offset
-        0,                              // Rotation (native portrait, changeable in Python)
+        270,                            // Rotation: 270 for landscape REPL
         16,                             // Color depth
         false,                          // Grayscale
         false,                          // Pixels in byte share row
@@ -88,12 +89,4 @@ static void display_init(void) {
 
 void board_init(void) {
     display_init();
-}
-
-bool board_reset_pin_number(mp_int_t pin_number) {
-    // Preserve display lines and backlight during soft reset
-    if (pin_number == 10 || pin_number == 23 || pin_number == 24 || pin_number == 26) {
-        return true;
-    }
-    return false;
 }
